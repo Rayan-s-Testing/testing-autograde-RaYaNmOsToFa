@@ -1,3 +1,4 @@
+#submitting assignment
 class Mathematics:
     check = 1
     def __init__(self, side=0):
@@ -17,7 +18,7 @@ class Mathematics:
         return a * b
 
     def divide(self, a, b):
-        """Returns the quotient of a and b. Raises ValueError if b is zero."""
+        """Returns the quotient of a and b. Raises ValueError if b is zero.""" 
         if b == 0:
             raise ValueError("Cannot divide by zero.")
         return a / b
