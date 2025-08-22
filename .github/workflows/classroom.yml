@@ -13,8 +13,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Test Math
-      id: test-math
+    - name: Test_Math
+      id: test_math
       uses: classroom-resources/autograding-python-grader@v1
       with:
         timeout: 10
@@ -22,6 +22,6 @@ jobs:
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        TEST-MATH_RESULTS: "${{steps.test-math.outputs.result}}"
+        TEST_MATH_RESULTS: "${{steps.test_math.outputs.result}}"
       with:
-        runners: test-math
+        runners: test_math
