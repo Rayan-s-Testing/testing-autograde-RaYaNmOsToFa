@@ -13,15 +13,17 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Test_Math
-      id: test_math
-      uses: classroom-resources/autograding-python-grader@v1
+    - name: Test Math
+      id: test-math
+      uses: classroom-resources/autograding-command-grader@v1
       with:
-        timeout: 10
+        test-name: Test Math
         setup-command: ''
+        command: pytest test_math.py
+        timeout: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        TEST_MATH_RESULTS: "${{steps.test_math.outputs.result}}"
+        TEST-MATH_RESULTS: "${{steps.test-math.outputs.result}}"
       with:
-        runners: test_math
+        runners: test-math
