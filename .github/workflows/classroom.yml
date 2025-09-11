@@ -22,9 +22,19 @@ jobs:
         command: pytest test_math.py
         timeout: 10
         max-score: 10
+    - name: Pytest Addition
+      id: pytest-addition
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Pytest Addition
+        setup-command: ''
+        command: pytest test_math.py::test_addition
+        timeout: 10
+        max-score: 5
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         TEST-MATH_RESULTS: "${{steps.test-math.outputs.result}}"
+        PYTEST-ADDITION_RESULTS: "${{steps.pytest-addition.outputs.result}}"
       with:
-        runners: test-math
+        runners: test-math,pytest-addition
